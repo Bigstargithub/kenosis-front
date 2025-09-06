@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+main {
+  @apply lg:w-3/5 m-auto p-5;
+}

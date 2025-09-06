@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.signin-input {
+  @apply flex flex-wrap content-center mt-7;
+}
+
+.signin-input h3 {
+  @apply text-xl font-medium mr-5 w-[100px] flex flex-wrap content-center;
+}
+
+.signin-input .input-text {
+  @apply border-1 rounded-sm p-3 lg:w-3/10 w-full;
+}
