@@ -1,14 +1,15 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useAuth } from "@/app/apis/auth/auth";
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
+import { useAuth, useRefreshTokenApi } from "@/app/apis/auth/auth";
 import { useRouter } from "next/navigation";
 
 export const useAccessToken = () => {
   const queryClient = useQueryClient();
-  const accessToken = queryClient.getQueryData(["accessToken"]);
-  const setAccessToken = (accessToken: string) => {
-    queryClient.setQueryData(["accessToken"], accessToken);
-  };
-  return { accessToken, setAccessToken };
+  return useQuery({
+    queryKey: ["accessToken"],
+    queryFn: () => {
+      return queryClient.getQueryData(["accessToken"]) ?? null;
+    },
+  });
 };
 
 export const useLoginHook = ({ path }: { path: string }) => {
@@ -25,10 +26,8 @@ export const useLoginHook = ({ path }: { path: string }) => {
       const data = await useAuth({ email, password });
       return data;
     },
-    onSuccess: (data: { token: string; refreshToken: string }) => {
-      console.log("data: ", data);
-      queryClient.setQueryData(["accessToken"], data.token);
-      queryClient.setQueryData(["refreshToken"], data.refreshToken);
+    onSuccess: (data: { accessToken: string; }) => {
+      queryClient.setQueryData(["accessToken"], data.accessToken);
       return router.push(path);
     },
     onError: (error) => {
@@ -36,3 +35,20 @@ export const useLoginHook = ({ path }: { path: string }) => {
     },
   });
 };
+
+export const useRefreshToken = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async () => {
+      const data = await useRefreshTokenApi();
+      return data;
+    },
+    onSuccess: (data: { accessToken: string; }) => {
+      queryClient.setQueryData(["accessToken"], data.accessToken);
+    },
+    onError: (error) => {
+      queryClient.setQueryData(["accessToken"], null);
+      console.log(error);
+    },
+  });
+}

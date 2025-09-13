@@ -12,34 +12,22 @@ export const useAuth = async ({
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "include",
     body: JSON.stringify({ email, password }),
   });
   return res.json();
 };
 
-export const useRefreshToken = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/refresh`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            refresh_token: queryClient.getQueryData(["refresh_token"]),
-          }),
-        }
-      );
-      return res.json();
-    },
-    onSuccess: (data) => {
-      queryClient.setQueryData(["accessToken"], data.token);
-    },
-    onError: (error) => {
-      console.log(error);
-    },
-  });
+export const useRefreshTokenApi = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/refreshToken`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
+  return res.json();
 };
