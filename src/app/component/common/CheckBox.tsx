@@ -9,7 +9,12 @@ export default function CheckBox({
 }) {
   return (
     <div>
-      <input type="checkbox" onChange={setCheckout} value={value} />
+      <input
+        type="checkbox"
+        onChange={setCheckout}
+        value={value}
+        className="mr-2"
+      />
       <label>{label}</label>
     </div>
   );

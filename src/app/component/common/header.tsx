@@ -27,15 +27,11 @@ export default function CommonHeader() {
         </div>
       </div>
       <div className="lg:w-3/5 m-auto gap-10 flex justify-center content-center mt-10">
-        <MenuButtonComponent link="/user/introduce" text="소개" />
-        <MenuButtonComponent
-          link="/user/letter"
-          text="수도원에서 보내는 편지"
-        />
-        <MenuButtonComponent link="/user/story" text="수도원 이야기" />
-        <MenuButtonComponent link="/user/facilities" text="시설소개" />
-        <MenuButtonComponent link="/user/apply" text="숙소 예약 및 연락" />
-        <MenuButtonComponent link="/user/event" text="이벤트" />
+        <MenuButtonComponent link="/user/introduce" text="수도원소개" />
+        <MenuButtonComponent link="/user/guide/meditation" text="수도원안내" />
+        <MenuButtonComponent link="/user/apply" text="수도원예약" />
+        <MenuButtonComponent link="/user/community" text="커뮤니티" />
+        <MenuButtonComponent link="/user/joobok" text="주복교회" />
       </div>
     </header>
   );

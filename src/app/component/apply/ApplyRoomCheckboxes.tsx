@@ -21,7 +21,7 @@ export default function ApplyRoomCheckboxes({
       {roomList.map((room) => (
         <CheckBox
           key={room}
-          label={room}
+          label={`${room}호`}
           value={room}
           setCheckout={onCheckRoom}
         />
