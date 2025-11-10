@@ -1,6 +1,7 @@
 import GuideButtonList from "@/app/component/guide/guide_button_list";
 import MeditationProgramArea from "@/app/component/guide/meditation_program_area";
 import MeditationTextArea from "@/app/component/guide/meditation_text_area";
+import MeditationItemList from "@/app/component/guide/meditation_item_list";
 
 export default function MeditationPage() {
   return (
@@ -17,6 +18,7 @@ export default function MeditationPage() {
         <MeditationTextArea />
       </div>
       <MeditationProgramArea />
+      <MeditationItemList />
     </section>
   );
 }
