@@ -1,15 +1,13 @@
 import Link from "next/link";
-import MenuButtonComponent from "./menu_button";
+import MenuButtonComponent from "@/app/component/common/menu_button";
+import Logo from "@/app/component/common/Logo";
 
 export default function CommonHeader() {
   return (
     <header className="bg-black p-5 sticky top-0 z-50 shadow-md">
       <div className="lg:w-3/5 m-auto flex justify-between content-center">
         <Link href="/user" className="cursor-pointer">
-          <p className="font-bold text-xl text-white">
-            대한예수교장로회 주복교회
-          </p>
-          <h3 className="font-bold text-3xl text-white">케노시스 수도원</h3>
+          <Logo />
         </Link>
         <div className="flex flex-wrap content-center">
           <Link

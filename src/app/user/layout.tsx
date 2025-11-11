@@ -3,6 +3,7 @@
 import CommonHeader from "@/app/component/common/header";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
+import Footer from "@/app/component/common/Footer";
 
 export default function UserLayout({
   children,
@@ -15,6 +16,7 @@ export default function UserLayout({
       <QueryClientProvider client={queryClient}>
         <CommonHeader />
         {children}
+        <Footer />
       </QueryClientProvider>
     </>
   );
