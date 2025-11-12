@@ -1,6 +1,6 @@
 "use client";
 
-import CommonHeader from "@/app/component/common/header";
+import CommonHeader from "@/app/component/common/Header";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 import Footer from "@/app/component/common/Footer";

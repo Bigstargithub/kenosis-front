@@ -15,8 +15,8 @@ export default function GuideButtonList() {
       />
       <LinkButton
         text="편의시설"
-        link="/user/guide/facilities"
-        isActive={url === "/user/guide/facilities"}
+        link="/user/guide/amenities"
+        isActive={url === "/user/guide/amenities"}
       />
     </div>
   );
