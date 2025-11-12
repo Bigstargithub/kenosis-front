@@ -1,6 +1,10 @@
 import GuideButtonList from "@/app/component/guide/guide_button_list";
 import AmenitiesRoomItem from "@/app/component/guide/Amenities/AmenitiesRoomItem";
 import AmenitiesLibraryItem from "@/app/component/guide/Amenities/AmenitiesLibraryItem";
+import AmenitiesCommunityRoomItem from "@/app/component/guide/Amenities/AmenitiesCommunityRoomItem";
+import AmenitiesPrayRoomItem from "@/app/component/guide/Amenities/AmenitiesPrayRoomItem";
+import AmenitiesCafeItem from "@/app/component/guide/Amenities/AmenitiesCafeItem";
+import AmenitiesChapelRoomItem from "@/app/component/guide/Amenities/AmenitiesChapelRoomItem";
 
 export default function AmenitiesPage() {
   return (
@@ -23,6 +27,10 @@ export default function AmenitiesPage() {
         </div>
         <AmenitiesRoomItem />
         <AmenitiesLibraryItem />
+        <AmenitiesCommunityRoomItem />
+        <AmenitiesPrayRoomItem />
+        <AmenitiesCafeItem />
+        <AmenitiesChapelRoomItem />
       </div>
     </section>
   );
